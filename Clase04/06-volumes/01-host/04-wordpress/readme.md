@@ -17,7 +17,7 @@ docker run -d \
     mysql:8
 ```
 
-### Crear contenedor de mysql
+### Crear contenedor de wordpress
 ```
 docker run -d \
     --name server-wp \
