@@ -3,38 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Frontend App</title>
-    <script>
-        async function showBackend1Address() {
-            const res = await fetch('/api/backend1-address');
-            const data = await res.json();
-            document.getElementById('backend1-address').textContent = data.backend1;
-        }
-
-        async function showProductos() {
-            const res = await fetch('/api/productos');
-            const productos = await res.json();
-            const list = document.getElementById('productos-list');
-            list.innerHTML = '';
-            productos.forEach(p => {
-                const li = document.createElement('li');
-                li.textContent = `${p.id}: ${p.nombre} - $${p.precio}`;
-                list.appendChild(li);
-            });
-        }
-
-        window.onload = function () {
-            showBackend1Address();
-            showProductos();
-        };
-    </script>
+    <title>Catálogo de Productos</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/app.js" defer></script>
 </head>
 
 <body>
-    <h1>Frontend App</h1>
-    <p>Backend1 address: <span id="backend1-address"></span></p>
-    <h2>Lista de productos</h2>
-    <ul id="productos-list"></ul>
+    <h1>Catálogo de Productos Tecnológicos</h1>
+    <div id="app">
+        <p class="loading">Cargando productos...</p>
+    </div>
 </body>
 
 </html>

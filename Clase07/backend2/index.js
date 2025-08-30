@@ -1,18 +1,17 @@
-
-import express from 'express';
-import cors from 'cors';
-import mysql from 'mysql2/promise';
+const express = require("express")
+const cors = require("cors")
+const mysql = require("mysql2/promise")
 
 const app = express();
 app.use(cors());
 const PORT = 5000;
 
 const dbConfig = {
-    host: 'server-mysql',
-    user: 'user',
-    password: '12345',
-    database: 'db',
-    port: 3306
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'user',
+    password: process.env.DB_PASS || '12345',
+    database: process.env.DB_NAME || 'db',
+    port: process.env.DB_PORT || 3306
 };
 
 // Root endpoint
@@ -26,7 +25,7 @@ app.get('/healthcheck', (req, res) => {
 });
 
 // Endpoint to get products (the other half)
-app.get('/productos', async (req, res) => {
+app.get('/api/productos', async (req, res) => {
     try {
         const connection = await mysql.createConnection(dbConfig);
         // Get the next 5 products (offset 5)

@@ -38,6 +38,7 @@ services:
       - net-apps-01
 
   frontend:
+    image: localhost:5000/frontend
     build:
       context: ./frontend
     container_name: frontend
@@ -59,6 +60,7 @@ services:
         condition: service_healthy
 
   backend1:
+    image: localhost:5000/backend1
     build:
       context: ./backend1
     container_name: backend1
@@ -88,6 +90,7 @@ services:
         condition: service_healthy
 
   backend2:
+    image: localhost:5000/backend2
     build:
       context: ./backend2
     container_name: backend2
