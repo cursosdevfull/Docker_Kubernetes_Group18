@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend2
-          image: localhost:5000/backend2
+          image: 282865065290.dkr.ecr.us-east-1.amazonaws.com/backend2
           imagePullPolicy: Always
           ports:
             - containerPort: 5000

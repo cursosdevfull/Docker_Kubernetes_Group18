@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend2
-          image: localhost:5000/backend2
+          image: gcr.io/docker08/backend2
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
